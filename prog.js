@@ -14,16 +14,16 @@ AsyncPolling(function(end) {
             });
         }).
         then(function(kim) {
-            return kim.imap.selectMailbox('Trade').
+            return kim.imap.selectMailbox(kim.keys.box).
                 then(function() { 
-                    console.log('selected mailbox');
+                    console.log('selected mailbox ' + kim.keys.box);
                     return kim;
                 });
         }).
         then(function(kim) {
             var range = 
                 kim.keys.lastmessage ? kim.keys.lastmessage : 1;
-            return kim.imap.listMessages('Trade', '' + range + ':*', ['uid','flags','body[]'], {byUid: true}).then(function(messages) {
+            return kim.imap.listMessages(kim.keys.box, '' + range + ':*', ['uid','flags','body[]'], {byUid: true}).then(function(messages) {
                 var result = {
                     keys: kim.keys,
                     imap: kim.imap,
@@ -32,7 +32,7 @@ AsyncPolling(function(end) {
                 };
                 return result;
             });
-            console.log("didn't find Trade mailbox");
+            console.log("didn't find " + kim.keys.box + " mailbox");
             kim.error = 'Trade mailbox not found';
             throw kimb;
         }).
