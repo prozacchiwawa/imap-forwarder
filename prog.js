@@ -103,4 +103,4 @@ AsyncPolling(function(end) {
             end();
         }).
         done();
-}, 30 * 1000).run();
+}, 5 * 60 * 1000).run();
