@@ -1,0 +1,11 @@
+{
+  "name": "tradelist",
+  "dependencies": {
+    "async-polling": "^0.2.1",
+    "emailjs-imap-client": "^2.0.2",
+    "fable-core": "^0.6.3",
+    "mailgun-js": "^0.7.12",
+    "q": "^1.4.1",
+    "q-io": "^1.13.2"
+  }
+}
